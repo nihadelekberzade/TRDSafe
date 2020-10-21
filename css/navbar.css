@@ -1,0 +1,97 @@
+.navbar {
+  width: 260px;
+  height: calc(100vh - 56px);
+  /* max-height: calc(100vh - 56px); */
+  transform: translateX(-260px);
+  background: rgb(85, 85, 85);
+  transition: transform 0.5s ease;
+
+  /* hiding with width attribute 
+  can be and probably will have to 
+  be used */
+}
+.navbar.active {
+  transform: translateX(0);
+}
+.navbar__content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.navbar__profile {
+  display: flex;
+  column-gap: 15px;
+  padding: 20px;
+  white-space: nowrap;
+  border-bottom: 1px solid #3a3f48;
+}
+.profile__id {
+  margin: 3px 0;
+  font-weight: 700;
+}
+.profile__username {
+  font-size: 12px;
+  color: #ccc;
+}
+.navbar__profile-photo {
+  width: 56px;
+  height: 58px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.menu__title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 20px 0 10px 20px;
+  letter-spacing: 0.5px;
+}
+.link {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.link__user-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #666;
+  margin-right: 10px;
+}
+.link .dropdown-menu {
+  transition: height 0.5s ease;
+  background: #666;
+}
+.link .dropdown-list {
+  padding: 3px 0;
+}
+.link .dropdown-item {
+  display: flex;
+  column-gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  padding: 8px 20px;
+  opacity: 0.7;
+}
+.link .dropdown-item:hover {
+  opacity: 1;
+}
+.link .bars {
+  width: 15px;
+  height: 15px;
+}
+.link__opener {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 8px 20px;
+  opacity: 0.7;
+}
+.link__opener:hover {
+  opacity: 1;
+}
+.link__arrow {
+  margin-left: auto;
+  width: 12px;
+  height: 24px;
+}
