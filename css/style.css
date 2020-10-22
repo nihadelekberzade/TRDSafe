@@ -10,3 +10,8 @@ img {
   max-width: 100%;
   object-fit: contain;
 }
+.content {
+  display: flex;
+  position: relative;
+  height: calc(100vh - 56px);
+}

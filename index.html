@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main-content.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <title>TRD Safe</title>
 </head>
+
+
 
 <body>
     <header class="header">
@@ -31,213 +35,233 @@
             <img class="header__flag" src="./img/flag.svg" alt="flag">
         </div>
     </header>
+    <div class="content">
+        <nav class="navbar navbar--active">
+            <div class="navbar__content">
+                <div class="navbar__profile">
+                    <img class="navbar__profile-photo" src="./img/profile_photo.png" alt="avatar">
+                    <div class="profile-info">
+                        <h2 class="profile__id">
+                            2102125221
+                        </h2>
+                        <span class="profile__username">
+                            Demo Account
+                        </span>
+                    </div>
 
-    <nav class="navbar">
-        <div class="navbar__content">
-            <div class="navbar__profile">
-                <img class="navbar__profile-photo" src="./img/profile_photo.png" alt="avatar">
-                <div class="profile-info">
-                    <h2 class="profile__id">
-                        2102125221
-                    </h2>
-                    <span class="profile__username">
-                        Demo Account
-                    </span>
+
                 </div>
+                <div class="navbar__menu">
+                    <h2 class="menu__title">
+                        Trader Menu
+                    </h2>
+                    <ul class="navbar-list">
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Your Trades
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                                <div class="dropdown-menu">
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Open Trades
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Closed Trades
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Monitoring
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                                <div class="dropdown-menu">
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Equity Monitoring
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Current Warnings
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Past Warnings
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
 
-
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Past Analysis
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                                <div class="dropdown-menu">
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Symbol P&L
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    Equity Graph
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Spreads
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                                <div class="dropdown-menu">
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    My Symbols
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    All Symbols
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Swaps
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                                <div class="dropdown-menu">
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    My Symbols
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-item">
+                                                <img class="bars" src="./img/bars.svg" alt="bars">
+                                                <span class="dropdown-item__title">
+                                                    All Symbols
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link">
+                                <div class="link__opener">
+                                    <img class="link__user-icon" src="./img/user.svg" alt="user">
+                                    <span class="link__title">
+                                        Logout
+                                    </span>
+                                    <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar__menu">
-                <h2 class="menu__title">
-                    Trader Menu
-                </h2>
-                <ul class="navbar-list">
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Your Trades
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Open Trades
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Closed Trades
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Monitoring
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Equity Monitoring
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Current Warnings
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Past Warnings
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Past Analysis
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Symbol P&L
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                Equity Graph
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Spreads
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                My Symbols
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                All Symbols
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Swaps
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                My Symbols
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-item">
-                                            <img class="bars" src="./img/bars.svg" alt="bars">
-                                            <span class="dropdown-item__title">
-                                                All Symbols
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="link">
-                            <div class="link__opener">
-                                <img class="link__user-icon" src="./img/user.svg" alt="user">
-                                <span class="link__title">
-                                    Logout
-                                </span>
-                                <img class="link__arrow" src="./img/arrow_right.svg" alt="arrow right">
-                            </div>
-                            <div class="dropdown-menu">
-
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+        </nav>
+        <main class="page-content main ">
+            <div class="main__content">
+                <div class="main__card-list">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
             </div>
-        </div>
-    </nav>
+
+
+            @RenderBody()
+        </main>
+    </div>
+
+
 
 
 
     <script src="./js/navbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var bodyHeight = $('.main__content').height();
+            $('.navbar').css('height', bodyHeight + 30);
+        });
+    </script>
 </body>
 
 </html>

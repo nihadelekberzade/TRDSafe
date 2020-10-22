@@ -1,22 +1,17 @@
 .navbar {
   width: 260px;
-  height: calc(100vh - 56px);
-  /* max-height: calc(100vh - 56px); */
-  transform: translateX(-260px);
+  min-height: calc(100vh - 56px);
+  position: absolute;
   background: rgb(85, 85, 85);
-  transition: transform 0.5s ease;
-
-  /* hiding with width attribute 
-  can be and probably will have to 
-  be used */
+  transition: transform 0.5s ease, min-width 0.5s ease;
+  transform: translateX(-260px);
 }
-.navbar.active {
+.navbar--active {
   transform: translateX(0);
 }
 .navbar__content {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 .navbar__profile {
   display: flex;
@@ -59,7 +54,11 @@
 }
 .link .dropdown-menu {
   transition: height 0.5s ease;
+  height: 0;
   background: #666;
+}
+.link .dropdown-menu--active {
+  height: 150px;
 }
 .link .dropdown-list {
   padding: 3px 0;

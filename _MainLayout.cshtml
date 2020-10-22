@@ -1,0 +1,573 @@
+﻿@using MTBRBus
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MT Portal Web</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+    <link href="../../MTPortalWebApp_files/bootstrap.css" rel="stylesheet">
+    <link href="../../MTPortalWebApp_files/Site.css" rel="stylesheet">
+    <link href="../../MTPortalWebApp_files/StyleSheet1.css" rel="stylesheet">
+    <link href="../../MTPortalWebApp_files/dx_002.css" rel="stylesheet">
+    <link href="../../MTPortalWebApp_files/dx.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="../../MTPortalWebApp_files/menucss.css" rel="stylesheet">
+
+
+
+  
+
+    <script src="../../MTPortalWebApp_files/jquery-3.js"></script>
+    <script src="../../MTPortalWebApp_files/bootstrap.js"></script>
+    <script src="../../MTPortalWebApp_files/cldr.js"></script>
+    <script src="../../MTPortalWebApp_files/event.js"></script>
+    <script src="../../MTPortalWebApp_files/supplemental.js"></script>
+    <script src="../../MTPortalWebApp_files/unresolved.js"></script>
+    <script src="../../MTPortalWebApp_files/globalize.js"></script>
+    <script src="../../MTPortalWebApp_files/message.js"></script>
+    <script src="../../MTPortalWebApp_files/number.js"></script>
+    <script src="../../MTPortalWebApp_files/currency.js"></script>
+    <script src="../../MTPortalWebApp_files/date.js"></script>
+    <script src="../../MTPortalWebApp_files/dx_002.js"></script>
+    <script src="../../MTPortalWebApp_files/dx_003.js"></script>
+    <script src="../../MTPortalWebApp_files/dx.js"></script>
+
+
+    <script>
+        function treeViewItemClick(e) {
+            var item = e.itemData;
+            {
+                if (item.IsLeafNode) {
+                    $("#product-details > .name").text(item.MenuName);
+                    window.location.href = item.ID;
+                }
+                else { return false; }
+            }
+        }
+         var lastSnapshotDate;
+            function refreshParameters() {
+        //dakika başı çalıştırılacak
+        fetch('../api/Default/GetMainLayoutParameters')
+            .then(response => response.json())
+            .then(data => _displayItems(data))
+            .catch(error => console.error('Unable to get items.', error));
+        }
+        function _displayItems(data) {
+            if (data.sesStat == "NOK") {
+                //burda logşn'e redirect edicez
+                @{
+                    string cc = "";
+                    string aa = "";
+
+                        cc = "Home";
+                        aa = "Login";
+
+
+                }
+                var url = '@Url.Action(aa,cc)';
+
+                window.location.href = url;
+            }
+            else {
+                lastSnapshotDate = data.sDate;
+                document.getElementById("SnapshotDate").innerHTML = data.sDate;
+                document.getElementById("TimeSpan").innerHTML = data.accSafeTime;
+                if (data.warningUnresolvedCount == 0) {
+                    document.getElementById("strSafe").innerHTML = 'Your account is safe';
+                    document.getElementById("strAsof").innerHTML = 'As of <strong>' + data.accSafeTime + '</strong> ago.';
+                }
+                else {
+                    document.getElementById("strSafe").innerHTML = 'Your account is not safe';
+                    document.getElementById("strAsof").innerHTML = 'There are <strong>' + data.warningUnresolvedCount + '</strong> warnings.';
+
+                }
+
+                var count = data.warningCount;//flagCount
+                if (count > 0) {
+                    document.getElementById("flagWarnings").style.visibility = "visible";
+                    document.getElementById("flagCount").innerHTML = count;
+                    var i;
+                    document.getElementById("flagWarnings").innerHTML = "";
+                    for (i = 0; i < 4; i++) {
+                        document.getElementById("flagWarnings").innerHTML
+                            += "<a class=\"dropdown-item\" href=\"#\" onclick=\"ChangeIframeSrc(&quot;" + data.warningLinks[i] + "&quot;)\">" + data.shortDescs[i] + "</a>";
+                    }
+                    
+                }
+                else {
+                    document.getElementById("flagCount").innerHTML = "";
+                    document.getElementById("flagWarnings").style.visibility = "hidden";
+                }
+
+            //
+
+              t = setTimeout(function() {
+                refreshParameters()
+              }, 60000);
+            }
+
+
+
+        }
+
+        refreshParameters();
+        /* window.onload = function WindowLoad(event) {
+            refreshParameters();*/
+
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #simple-treeview {
+            background: #eee;
+            padding: 10px;
+        }
+
+        .long-title h3 {
+            background: #343a40;
+            padding: 10px;
+            line-height: 1.2;
+            vertical-align: top;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .dx-textbox.dx-texteditor.dx-editor-underlined.dx-widget {
+            width: auto !important;
+        }
+
+        #form {
+            padding: 0 15px;
+        }
+
+            #form input {
+                text-align: center;
+            }
+
+            #form .dx-field-item {
+                font-size: 15px !important;
+            }
+
+        #navbar {
+            display: block !important;
+        }
+
+        #form .dx-button-has-text .dx-button-content {
+            padding: 0 !important;
+        }
+
+        #devextreme5 .dx-button-content {
+            padding: 0 15px !important;
+        }
+
+        .form-group.remember {
+            padding: 0 14px 20px 34px;
+            margin-top: -25px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-wrapper {
+            top: 55px !important;
+        }
+
+        #show-sidebar {
+            top: 15px !important;
+            left: 217px;
+        }
+
+        .page-wrapper {
+            height: auto !important;
+        }
+
+        #navbar .badge-warning {
+            color: #fff;
+            background-color: #ff4207;
+            top: -9px;
+            position: relative;
+            right: 4px;
+            font-size: 10px;
+        }
+
+        .p-img {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a::before {
+            content: none !important;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+            padding-left: 0 !important;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .page-wrapper .page-content > .page-dir {
+            padding: 0 12px;
+            font-size: 12px;
+        }
+
+        .link a {
+            color: #999;
+            line-height: 0;
+        }
+
+        .home-p {
+            color: #27cfe6 !important;
+        }
+
+        .list-none {
+            list-style: none;
+        }
+
+        .link span {
+            display: list-item;
+            float: left;
+            padding: 0 20px 0 0;
+            color: #999;
+        }
+
+        .link {
+            display: table;
+            padding: 10px;
+        }
+
+        #uyari-text {
+            color: white;
+            float: left;
+            text-align: right;
+        }
+
+            #uyari-text > .user-name {
+                font-weight: 700;
+            }
+
+            #uyari-text > .user-role {
+                font-size: 0.7em;
+                float: left;
+            }
+
+        #flagWarnings {
+            left: auto;
+            right: 0px;
+            top: 115%;
+        }
+
+        #navbar {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            text-align: right;
+        }
+
+        .dx-texteditor-input {
+            background-color: red;
+        }
+
+        #strSafe, #strAsof {
+            width: 100%;
+            display: block;
+            margin-right: 20px;
+            width: 190px;
+        }
+        #crm {
+           
+            height: 1200px;
+        }
+        #helo-text {
+            color: white;
+            text-align: right;
+            padding-right: 0;
+        }
+        #flags {
+
+        }
+        .flags-content {
+            float: left;
+            
+            vertical-align: middle;
+            margin: 4px 5px;
+        }
+        .flag-image {
+            width: 25px;
+            height: 21px;
+        }
+    </style>
+</head>
+
+
+<body style="padding-top: 4rem;">
+    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
+        <a class="navbar-brand" href="#" onclick="ChangeIframeSrcWithId('Main/MainIndex',28);">TRDSafe</a>
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#"><i class="fas fa-bars"></i></a>
+
+    <div id="navbar" class="collapse navbar-collapse float-right">
+        <ul class="navbar-nav  float-right">
+            <div class="dx-field" style="width:100px; margin-top: -9px;">
+                <div class="dx-field-label" id="helo-text">Help</div>
+                <div class="dx-field-value" style="padding:0; float: left; width: 50%">
+                    
+                    @(Html.DevExtreme().Switch()
+                    .Value((bool)System.Web.HttpContext.Current.Session["HelpOn"]).OnValueChanged("switch_valueChanged")
+                )
+                </div>
+            </div>
+            <div id="flags">
+                <div class="flags-content">
+                    <img src="../../Content/flags/turkey.png" class="flag-image"/>
+                </div>
+                <div class="flags-content">
+                    <img src="../../Content/flags/uk.png"  class="flag-image" />
+                </div>
+                <div class="flags-content">
+                    <img src="../../Content/flags/russia.png" class="flag-image" />
+                </div>
+            </div>
+            @*todo: bir sonraki releas'de trader'a gelen mesajlar (mesela borker'lardan gelen teklifler olabilir')'*@
+
+            <div id="uyari-text">
+                <span class="user-name" id="strSafe">
+
+                </span>
+                <span class="user-role" id="strAsof"></span>
+            </div>
+            <li class="nav-item">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="far fa-flag"></i><span class="badge badge-pill badge-warning notification" id="flagCount"></span></a>
+                <div class="dropdown-menu" id="flagWarnings">
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+    <main role="main" class="">
+        <div class="page-wrapper chiller-theme toggled">
+
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+
+                    <div class="sidebar-header">
+                        <div class="user-pic">
+                            <img class="img-responsive img-rounded" src=@ViewBag.FileName alt="User picture" />
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">
+                                <strong>@ViewBag.Login</strong>
+                            </span>
+                            <span class="user-role">Demo Account</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu">
+                                <span>Trader Menu</span>
+                            </li>
+
+                            @{
+                                List<MenuItem> menuItems = MenuItem.SelectItems("ParentMenuItem_Id=0 order by OrderNum");
+                                for (int i = 0; i < menuItems.Count; i++)
+                                {
+                                    MenuItem mi = menuItems[i];
+                                    if (mi.viewName != "")
+                                    {
+                                        <li><a href="#" onclick="ChangeIframeSrcWithId('@mi.viewName',@mi.menuItemId);"><i class="fas fa-list"></i> @mi.text </a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="sidebar-dropdown">
+                                            <a href="#">
+                                                <i class="fas fa-user"></i>
+                                                <span>@mi.text</span>
+                                            </a>
+                                            <div class="sidebar-submenu">
+                                                <ul>
+                                                    @{
+                                                        List<MenuItem> subMenuItems = MenuItem.SelectItems("ParentMenuItem_Id=" + mi.menuItemId.ToString() + " order by OrderNum"); //allMenuItems.Where(o => o.parentMenuItem_Id == mi.menuItemId).ToList();
+                                                        for (int j = 0; j < subMenuItems.Count; j++)
+                                                        {
+                                                            MenuItem subMi = subMenuItems[j];
+                                                            <li><a href="#" onclick="ChangeIframeSrcWithId('@subMi.viewName',@subMi.menuItemId);"><i class="fas fa-list"></i> @subMi.text </a></li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            }
+                            <li class="sidebar-dropdown">
+                                <a href="@Url.Action("logout", "Home")"> <i class="fa fa-chart-line"></i><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+                <div class="sidebar-footer">
+                    <a href="#">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-pill badge-warning notification">3</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-envelope"></i>
+                        <span class="badge badge-pill badge-success notification">7</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span class="badge-sonar"></span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-power-off"></i>
+                    </a>
+                </div>
+            </nav>
+            <!-- sidebar-wrapper  -->
+            <main class="page-content">
+                @RenderBody()
+                <iframe id="crm" style="border:0px;" width="100%" src="/Dashboard/MainBoard"></iframe>
+                @*<iframe id="crm" style="border:0px;" width="100%" src="/Main/MainIndex?menuItemId=28"></iframe>*@
+            </main>
+        </div>
+        <div class="hidden3" id="SnapshotDate"></div>
+        <div class="hidden3" id="TimeSpan"></div>
+
+
+
+    </main>
+
+
+
+    <script>
+        function redLogin() {
+            var url = '@Url.Action("Login", "Home")';
+
+            window.location.href = url;
+        }
+        function ChangeIframeSrcWithId(urlpath,id) {
+
+            document.getElementById('crm').src = "/"+urlpath+"?menuItemId="+id;
+        }
+        function ChangeIframeSrc(urlpath) {
+
+            document.getElementById('crm').src = "/" + urlpath;
+        }
+        $(function ($) {
+
+            $(".sidebar-dropdown > a").click(function () {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                        .parent()
+                        .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").toggleClass("toggled");
+            });
+
+        });
+    </script>
+
+    <script>
+        if ($(window).width() < 768) {
+            $(".sidebar-submenu li a").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+        }
+        else {
+            $(".sidebar-submenu li a").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+        }
+        function switch_valueChanged(data) {
+
+            fetch('../api/Default/GetHtmlHelpOnOff?iValue='+data.value)
+                .then(response => response.json())
+                .then(data => _displayHelpOn(data))
+                .catch(error => console.error('Unable to get items.', error));
+            
+        }
+        function _displayHelpOn(data) {
+            //var f = $('#crm')
+            //f.load(function () {
+            //    f.contents().find('question').hide(); 
+            
+        }
+    </script>
+
+
+
+
+</body>
+</html>
