@@ -124,7 +124,6 @@
         /* window.onload = function WindowLoad(event) {
             refreshParameters();*/
 
-
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -395,10 +394,8 @@
 
     <main role="main" class="">
         <div class="page-wrapper chiller-theme toggled">
-
             <nav id="sidebar" class="sidebar-wrapper">
                 <div class="sidebar-content">
-
                     <div class="sidebar-header">
                         <div class="user-pic">
                             <img class="img-responsive img-rounded" src=@ViewBag.FileName alt="User picture" />
@@ -409,8 +406,6 @@
                             </span>
                             <span class="user-role">Demo Account</span>
                         </div>
-
-
                     </div>
 
                     <div class="sidebar-menu">
@@ -458,6 +453,7 @@
                     </div>
                     <!-- sidebar-menu  -->
                 </div>
+
                 <!-- sidebar-content  -->
                 <div class="sidebar-footer">
                     <a href="#">
@@ -493,10 +489,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         function redLogin() {
             var url = '@Url.Action("Login", "Home")';
-
             window.location.href = url;
         }
         function ChangeIframeSrcWithId(urlpath,id) {
@@ -508,7 +532,6 @@
             document.getElementById('crm').src = "/" + urlpath;
         }
         $(function ($) {
-
             $(".sidebar-dropdown > a").click(function () {
                 $(".sidebar-submenu").slideUp(200);
                 if (
@@ -551,23 +574,16 @@
             });
         }
         function switch_valueChanged(data) {
-
             fetch('../api/Default/GetHtmlHelpOnOff?iValue='+data.value)
                 .then(response => response.json())
                 .then(data => _displayHelpOn(data))
                 .catch(error => console.error('Unable to get items.', error));
-            
         }
         function _displayHelpOn(data) {
             //var f = $('#crm')
             //f.load(function () {
-            //    f.contents().find('question').hide(); 
-            
+            //    f.contents().find('question').hide();
         }
     </script>
-
-
-
-
 </body>
 </html>

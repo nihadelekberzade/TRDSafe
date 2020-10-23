@@ -1,6 +1,7 @@
 const navbar = document.querySelector('.navbar');
 const main = document.querySelector('.main');
 
+
 document.querySelector('.header__toggle').addEventListener('click', function () {
     if (navbar.classList.contains('navbar--active')) {
         navbar.classList.remove('navbar--active');
@@ -13,29 +14,34 @@ document.querySelector('.header__toggle').addEventListener('click', function () 
 })
 
 
-let hasActiveLink = true;
 navbar.querySelectorAll('.link__opener').forEach((item) => {
     item.addEventListener('click', () => {
         let drp_menu = item.parentElement.querySelector('.dropdown-menu');
-        if (drp_menu === null) return;
-        if (drp_menu.classList.contains('dropdown-menu--active')) {
-            drp_menu.classList.remove('dropdown-menu--active');
+        /* if logout btn is clicked */
+        if (drp_menu === null) {
+            if (navbar.querySelector('.link--active')) {
+                navbar.querySelector('.link--active').querySelector('.dropdown-menu').style.height = 0;
+                navbar.querySelector('.link--active').classList.remove('link--active');
+            }
+            return
+        }
+        /* if active link is clicked */
+        if (item.parentElement.classList.contains('link--active')) {
+            drp_menu.style.height = 0;
+            item.parentElement.classList.remove('link--active');
             return;
         }
-
-
-        if (navbar.querySelector('.dropdown-menu--active')) {
-            navbar.querySelector('.dropdown-menu--active').classList.remove('dropdown-menu--active');
-            console.log('1');
+        /* if there is another active link so close it */
+        if (navbar.querySelector('.link--active')) {
+            navbar.querySelector('.link--active').querySelector('.dropdown-menu').style.height = 0;
+            navbar.querySelector('.link--active').classList.remove('link--active');
         }
-        if (drp_menu.classList.contains('dropdown-menu--active')) {
-            console.log('2');
-            drp_menu.classList.remove('dropdown-menu--active');
-            hasActiveLink = !hasActiveLink;
+        if (item.parentElement.classList.contains('link--active')) {
+            item.parentElement.classList.remove('link--active');
         }
         else {
-            console.log('3');
-            drp_menu.classList.add('dropdown-menu--active');
+            item.parentElement.classList.add('link--active');
+            drp_menu.style.height = drp_menu.querySelectorAll('.dropdown-item').length * 34 + 'px';
         }
     })
 })
