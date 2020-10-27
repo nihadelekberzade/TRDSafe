@@ -1,7 +1,6 @@
 .section-mainboard {
   padding: 4rem;
   background-color: #f7f7f7;
-  color: red !important;
   min-height: 100vh;
 }
 .row {
@@ -27,6 +26,9 @@
 
 .col-1-of-2 {
   width: calc((100% - 2rem) / 2);
+}
+.col-1-of-3 {
+  width: calc((100% - 2 * 2rem) / 3);
 }
 .col-1-of-6 {
   width: calc((100% - 2 * 2rem) / 6);
