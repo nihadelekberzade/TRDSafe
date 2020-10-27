@@ -1,9 +1,30 @@
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
   color: #fff;
+  -webkit-box-sizing: inherit;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #777;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 a {
+  color: inherit;
+  display: inline-block;
   text-decoration: none;
 }
 img {
@@ -11,7 +32,5 @@ img {
   object-fit: contain;
 }
 .content {
-  display: flex;
   position: relative;
-  height: calc(100vh - 56px);
 }

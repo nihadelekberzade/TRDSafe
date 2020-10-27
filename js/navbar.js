@@ -41,7 +41,7 @@ navbar.querySelectorAll('.link__opener').forEach((item) => {
         }
         else {
             item.parentElement.classList.add('link--active');
-            drp_menu.style.height = drp_menu.querySelectorAll('.dropdown-item').length * 34 + 'px';
+            drp_menu.style.height = drp_menu.querySelectorAll('.dropdown-item').length * 37 + 6 + 'px';
         }
     })
 })

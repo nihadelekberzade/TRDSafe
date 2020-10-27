@@ -1,0 +1,40 @@
+.section-mainboard {
+  padding: 4rem;
+  background-color: #f7f7f7;
+  color: red !important;
+  min-height: 100vh;
+}
+.row {
+  height: 25rem;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0.7rem 0.7rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.row:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.row > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.col-1-of-2 {
+  width: calc((100% - 2rem) / 2);
+  background-color: teal;
+}
+.col-1-of-6 {
+  width: calc((100% - 2 * 2rem) / 6);
+  background-color: teal;
+}
+.col-7-of-10 {
+  width: calc(8 * ((100% - 1 * 2rem) / 10) + 2rem);
+  background-color: teal;
+}
+.col-3-of-10 {
+  width: calc(3 * ((100% - 1 * 2rem) / 10) + 2rem);
+  background-color: teal;
+}

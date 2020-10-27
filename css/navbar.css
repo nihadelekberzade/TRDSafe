@@ -25,15 +25,12 @@
   font-weight: 700;
 }
 .profile__username {
-  font-size: 12px;
   color: #ccc;
 }
 .navbar__profile-photo {
   width: 56px;
   height: 58px;
   border-radius: 4px;
-  flex-shrink: 0;
-  flex-grow: 0;
 }
 .menu__title {
   font-size: 14px;
@@ -44,6 +41,7 @@
 .link {
   overflow: hidden;
   white-space: nowrap;
+  font-weight: 400;
 }
 .link--active .link__user-icon {
   animation: shake;
@@ -79,6 +77,7 @@
 }
 .link .dropdown-item {
   display: flex;
+  align-items: center;
   column-gap: 12px;
   padding: 8px 0;
   cursor: pointer;
