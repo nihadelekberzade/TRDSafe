@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+.content {
+  display: flex;
+}
+body {
+  font-weight: 400;
+  font-size: 1.4rem;
+  font-family: "Quicksand", sans-serif;
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+input,
+button {
+  outline: none;
+  border: none;
+  font-family: inherit;
+}
+input {
+  color: inherit;
+  display: block;
+}

@@ -1,15 +1,13 @@
 const navbar = document.querySelector('.navbar');
-const main = document.querySelector('.main');
+
 
 
 document.querySelector('.header__toggle').addEventListener('click', function () {
     if (navbar.classList.contains('navbar--active')) {
         navbar.classList.remove('navbar--active');
-        main.classList.add('main--fullsize');
     }
     else {
         navbar.classList.add('navbar--active');
-        main.classList.remove('main--fullsize');
     }
 })
 

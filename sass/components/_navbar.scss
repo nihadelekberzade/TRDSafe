@@ -1,36 +1,43 @@
 .navbar {
-  width: 260px;
+  width: 270px;
   min-height: calc(100vh - 56px);
-  position: absolute;
-  background: rgb(85, 85, 85);
-  transition: transform 0.5s ease, min-width 0.5s ease;
-  transform: translateX(-260px);
+  background: #f5f5f5;
+  transition: margin-left 0.5s ease, min-width 0.5s ease;
+  margin-left: -270px;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+  &--active {
+    margin-left: 0;
+    .profile {
+      display: block;
+    }
+  }
 }
-.navbar--active {
-  transform: translateX(0);
-}
-.navbar__content {
-  display: flex;
-  flex-direction: column;
-}
-.navbar__profile {
-  display: flex;
-  column-gap: 15px;
-  padding: 20px;
-  white-space: nowrap;
-  border-bottom: 1px solid #3a3f48;
-}
-.profile__id {
-  margin: 3px 0;
-  font-weight: 700;
-}
-.profile__username {
-  color: #ccc;
-}
-.navbar__profile-photo {
-  width: 56px;
-  height: 58px;
-  border-radius: 4px;
+.profile {
+  display: none;
+  background-color: #ecedee;
+  &__inner {
+    display: flex;
+    align-items: center;
+    column-gap: 17px;
+    padding: 20px;
+    white-space: nowrap;
+  }
+  &__photo {
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+  }
+  &__id {
+    margin: 3px 0;
+    font-size: 14px;
+  }
+  &__username {
+    font-size: 12px;
+    color: #ccc;
+  }
 }
 .menu__title {
   font-size: 14px;
@@ -39,6 +46,7 @@
   letter-spacing: 0.5px;
 }
 .link {
+  color: $clr-blue;
   overflow: hidden;
   white-space: nowrap;
   font-weight: 400;
@@ -64,13 +72,12 @@
   width: 18px;
   height: 18px;
   border-radius: 5px;
-  background: #666;
+  background-color: #666;
   margin-right: 10px;
 }
 .link .dropdown-menu {
   height: 0;
   transition: height 0.5s ease;
-  background: #666;
 }
 .link .dropdown-list {
   padding: 3px 0;
