@@ -8,8 +8,11 @@
 html {
   font-size: 62.5%;
 }
-.content {
+.layout {
   display: flex;
+}
+.header-main {
+  flex: 1;
 }
 body {
   font-weight: 400;

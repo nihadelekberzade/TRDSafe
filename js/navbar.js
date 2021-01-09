@@ -2,9 +2,10 @@ const navbar = document.querySelector('.navbar');
 
 
 
-document.querySelector('.header__toggle').addEventListener('click', function () {
+document.querySelector('.header__toggle').addEventListener('click', () => {
     if (navbar.classList.contains('navbar--active')) {
         navbar.classList.remove('navbar--active');
+        navbar.querySelectorAll('.dropdown-menu').forEach((e) => e.style.height = 0)
     }
     else {
         navbar.classList.add('navbar--active');
@@ -14,6 +15,9 @@ document.querySelector('.header__toggle').addEventListener('click', function () 
 
 navbar.querySelectorAll('.link__opener').forEach((item) => {
     item.addEventListener('click', () => {
+        if (!navbar.classList.contains('navbar--active')) {
+            navbar.classList.add('navbar--active');
+        }
         let drp_menu = item.parentElement.querySelector('.dropdown-menu');
         /* if logout btn is clicked */
         if (drp_menu === null) {
