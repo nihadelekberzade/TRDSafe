@@ -207,7 +207,57 @@
           </div>
         </header>
         <main class="main page-content">
-          <div class="main__content">@RenderBody()</div>
+          <div class="main__inner">
+            <div class="main__header">
+              <h2 class="main__title">Dashboard</h2>
+              <div class="path">
+                TRD Safe /
+                <span class="txt-blue">Dashboard</span>
+              </div>
+            </div>
+            <div class="main__layout">
+              <div class="card card--warning">
+                <div class="card__info">
+                  <h2 class="card__title">Warnings</h2>
+                  <p class="card__last-update-time">Last updated 15 minutes ago</p>
+                </div>
+                <div class="card__inner">
+                  <div class="warning-bar">
+                    <div class="warning-box">
+                      <img src="../img/Icon ionic-ios-warning.svg" alt="warning" />
+                    </div>
+                    <div class="warning-box">
+                      <img src="../img/Icon ionic-ios-warning.svg" alt="warning" />
+                    </div>
+                    <div class="warning-box">
+                      <img src="../img/Icon ionic-ios-warning.svg" alt="warning" />
+                    </div>
+                  </div>
+                  <ul class="card__list">
+                    <li class="card__list-item">
+                      <div class="item">
+                        <h3 class="item__title item__title--warning">No Open Issues</h3>
+                        <h4 class="item__subtitle item__subtitle--warning">Short warning explain</h4>
+                      </div>
+                    </li>
+                    <li class="card__list-item">
+                      <div class="item">
+                        <h3 class="item__title item__title--warning">No Open Issues</h3>
+                        <h4 class="item__subtitle item__subtitle--warning">Short warning explain</h4>
+                      </div>
+                    </li>
+                    <li class="card__list-item">
+                      <div class="item">
+                        <h3 class="item__title item__title--warning">No Open Issues</h3>
+                        <h4 class="item__subtitle item__subtitle--warning">Short warning explain</h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="main__content">@RenderBody()</div> -->
         </main>
       </div>
     </section>
